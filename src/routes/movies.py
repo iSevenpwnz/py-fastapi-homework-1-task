@@ -10,7 +10,7 @@ from schemas import MovieListResponseSchema, MovieDetailResponseSchema
 router = APIRouter()
 
 
-@router.get("/movies/")
+@router.get("/movies/, response_model=MovieListResponseSchema")
 async def get_movie_list(
         request: Request,
         db: AsyncSession = Depends(get_db),
